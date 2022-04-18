@@ -50,4 +50,4 @@ pval.mat = apply_QTWAS(tissue.name, snp.col, snp.col.name, special.end, phecode_
 License
 -------
 
-This package is free and open source software, licensed under GPL (&gt;=2).
+This R file is free and open source software, licensed under GPL (&gt;=2).
