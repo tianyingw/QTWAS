@@ -60,6 +60,7 @@ This will return a matrix with 11 columns:
 - *Z_Q3*: Z score for the quantile region (0.45, 0.75);
 - *Z_Q4*: Z score for the quantile region (0.65, 0.95);
 
+Note: NA in interval-based p values or Z scores indicating either no variants from this interval has been used or the model does not pass the imputation accuracy check (default threshold is R>0.1). 
 
 License
 -------
