@@ -1,8 +1,8 @@
 
-apply_QTWAS <- function(tissue.name, snp.col, snp.col.name, special.end, phecode_long, add_savemodel, add_GWAS, add_savepval){
+apply_QTWAS <- function(tissue.name, snp.col, snp.col.name, special.end, phecode_long, add_savemodel, add_GWAS, add_Rscore,add_savepval){
   
   add_org = getwd()
-  
+  R.score.file = read.table(paste0(add_Rscore, tissue.name, "_R_score.txt"))
   interval.mat = matrix(c(0.05,0.35,0.25,0.55,0.45,0.75,0.65,0.95), nrow = 4, ncol=2, byrow = T)
   interval.name = apply(interval.mat, 1, function(x){paste0("(", x[1], ",", x[2], ")")})
   
@@ -28,6 +28,7 @@ apply_QTWAS <- function(tissue.name, snp.col, snp.col.name, special.end, phecode
     # get rsid and extract snps from gwas data
     beta.set = which(mytable.beta$gene == gene.id)
     cov.set = which(mytable.cov_mat$gene == gene.id)
+    R.temp = R.score.file[match(gene.id, rownames(R.score.file)),]
     
     # extract gwas snp
     setwd(add_GWAS)
@@ -122,7 +123,19 @@ apply_QTWAS <- function(tissue.name, snp.col, snp.col.name, special.end, phecode
       }
       
     }
-    p_combo =Get.cauchy(pval_qr)
+    
+    # check R score
+    replace.id = which(R.temp[1, 3:6] < 0.1)
+    if(length(replace.id) > 0){
+      pval_qr[replace.id] = NA
+      zscore_qr[replace.id] = NA
+      pval_qr1 = pval_qr
+      pval_qr1[replace.id] = runif(length(replace.id))
+      p_combo =Get.cauchy(pval_qr)
+    }else{
+      p_combo =Get.cauchy(pval_qr)
+    }
+    
     all_pval_mat[igene, ] = c(p_combo, pval_qr, length(final.set), length(rsid.set), zscore_qr)
     print(c(p_combo, pval_qr))
     
