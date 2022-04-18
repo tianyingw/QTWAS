@@ -8,7 +8,8 @@ Download
 ------------
 
 - You can download the **development** version of the main function "help_funcions.R" from [Github](https://github.com/tianyingw/QTWAS).
-- You can download the pre-trained models for QTWAS from [Dropbox]()
+- You can download the pre-trained models for QTWAS from [Dropbox]().
+- You can download the R scores for QTWAS models from [Dropbox]().
 
 Usage
 -----
@@ -38,10 +39,10 @@ special.end =paste0("V8_", phecode)
 # specify directories
 add_savepval = "~/Dropbox/somewhere_to_save_p_values/"
 add_GWAS = "~/Dropbox/somewhere_you_saved_gwas_sumstats/"
-add_savemodel = "~/Dropbox/somewhere_you_saved_pretrained_QTWAS_models/"
+add_Rscore = "~/Dropbox/somewhere_you_saved_Rscores_for_QTWAS_models/"
 
 # apply QTWAS pre-trained models
-pval.mat = apply_QTWAS(tissue.name, snp.col, snp.col.name, special.end, phecode_long, add_savemodel, add_GWAS, add_savepval)
+pval.mat = apply_QTWAS(tissue.name, snp.col, snp.col.name, special.end, phecode_long, add_savemodel, add_GWAS,add_Rscore, add_savepval)
 
 ```
 
