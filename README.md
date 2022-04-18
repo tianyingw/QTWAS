@@ -12,14 +12,12 @@ Download
 
 Usage
 -----
-Suppose you have a file for GWAS summary statistics stored in a list with Y = SampleData$y, covriates C = SampleData$c, genetic data X = SampleData$x.
+Suppose you have a file for GWAS summary statistics stored in a txt file with four columns: SNP for rsid, A1 for ref allele, A2 for alt allele, and Z for z score. Then, a basic tutorial is demonstrated from below.
 
 ``` r
 # import required package
 library(RSQLite)
 source("help_functions.R")
-
-# your GWAS summary stats need to have SNP for rsid, A1 for ref allele, A2 for alt allele, and Z for z score
 
 # specify the name of your GWAS summary stats file name
 phecode_long = "sumstat_PD" 
@@ -46,6 +44,12 @@ add_savemodel = "~/Dropbox/somewhere_you_saved_pretrained_QTWAS_models/"
 pval.mat = apply_QTWAS(tissue.name, snp.col, snp.col.name, special.end, phecode_long, add_savemodel, add_GWAS, add_savepval)
 
 ```
+
+Output
+-------
+This will return a matrix with 11 columns:
+- *qr*
+
 
 License
 -------
