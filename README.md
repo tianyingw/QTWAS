@@ -2,7 +2,7 @@
 QTWAS
 ==========
 
-We provide a quantile tool for investigating nonlinear gene-trait associations in Transcriptome-Wide Association Analysis (TWAS). More information can be found on the webpage: https://tianyingw.github.io/QTWAS/.
+We provide a quantile tool for investigating nonlinear gene-trait associations in Transcriptome-Wide Association Analysis (TWAS). More information can be found on [this webpage](https://tianyingw.github.io/QTWAS/).
 
 Download
 ------------
