@@ -48,7 +48,17 @@ pval.mat = apply_QTWAS(tissue.name, snp.col, snp.col.name, special.end, phecode_
 Output
 -------
 This will return a matrix with 11 columns:
-- *qr*
+- *qr*: unified p values per gene;
+- *qr(0.05,0.35)*: quantile interval specific p value for the quantile region (0.05, 0.35);
+- *qr(0.25,0.55)*: quantile interval specific p value for the quantile region (0.25, 0.55);
+- *qr(0.45,0.75)*: quantile interval specific p value for the quantile region (0.45, 0.75);
+- *qr(0.65,0.95)*: quantile interval specific p value for the quantile region (0.65, 0.95);
+- *n_used*: the number of variants finally used for QTWAS test statistics;
+- *n_model*: the number of variants in pre-trained QTWAS models;
+- *Z_Q1*: Z score for the quantile region (0.05, 0.35);
+- *Z_Q2*: Z score for the quantile region (0.25, 0.55);
+- *Z_Q3*: Z score for the quantile region (0.45, 0.75);
+- *Z_Q4*: Z score for the quantile region (0.65, 0.95);
 
 
 License
